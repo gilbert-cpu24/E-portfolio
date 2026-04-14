@@ -55,7 +55,6 @@ const ActivitiesSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
               <div className="relative z-10 flex flex-col justify-end h-full p-6">
-                <span className="text-xs font-semibold text-blue-300 mb-1">{act.hours}</span>
                 <h3 className="text-xl font-bold text-white mb-1">{act.title}</h3>
                 <p className="text-white/80 text-sm leading-relaxed line-clamp-3">{act.description}</p>
               </div>
