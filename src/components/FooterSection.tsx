@@ -42,7 +42,7 @@ const FooterSection = () => {
         </div>
 
         <p className="text-primary-foreground/50 text-xs mt-6">
-          © 2025 E-Portfolio. All rights reserved.
+          © 2026 OJT Student Portfolio | Gilbert M. Deguit | Bachelor of Science in Information Technology | 4th Year Section B
         </p>
       </div>
     </footer>
