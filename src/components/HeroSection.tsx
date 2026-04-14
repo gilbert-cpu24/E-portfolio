@@ -5,15 +5,6 @@ const HeroSection = () => {
     <section className="hero-gradient min-h-[70vh] flex items-center justify-center px-6 py-20">
       <div className="container max-w-5xl flex flex-col md:flex-row items-center gap-10">
         <div className="flex-shrink-0">
-          <a
-  href="https://github.com/gilbert-cpu24"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="absolute top-6 right-6 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-  aria-label="GitHub Profile"
->
-  <Github className="w-7 h-7" />
-</a>
           <img
             src={profileImg}
             alt="Profile photo"
