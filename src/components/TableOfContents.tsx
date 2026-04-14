@@ -8,7 +8,6 @@ const tocItems = [
   { label: "OJT Activities", target: "activities" },
   { label: "Photo Gallery", target: "gallery" },
   { label: "Assessment", target: "assessment" },
-  { label: "Appendices", target: "appendices" },
   { label: "Contact", target: "contact" },
 ];
 
