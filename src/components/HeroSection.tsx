@@ -30,7 +30,8 @@ const HeroSection = () => {
           <img
             src={profileImg}
             alt="Gilbert M. Deguit"
-            className="relative rounded-full border-4 border-white/20 shadow-2xl object-cover object-[center_30%] w-[200px] h-[200px]"
+            className="relative rounded-full border-4 border-white/20 shadow-2xl object-cover w-[200px] h-[200px]"
+            style={{ objectPosition: 'center 25%' }}
           />
         </div>
 
