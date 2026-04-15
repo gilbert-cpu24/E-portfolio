@@ -3,7 +3,16 @@ import { Github } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="hero-gradient min-h-[50vh] flex items-center justify-center px-6 py-14">
+    <section className="relative hero-gradient min-h-[50vh] flex items-center justify-center px-6 py-14">
+      <a
+        href="https://github.com/gilbert-cpu24"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-4 right-4 text-primary-foreground hover:text-primary-foreground/80 transition-colors z-10"
+        aria-label="GitHub Profile"
+      >
+        <Github className="w-6 h-6" />
+      </a>
       <div className="container max-w-4xl flex flex-col md:flex-row items-center gap-8">
         <div className="flex-shrink-0">
           <img
@@ -14,16 +23,7 @@ const HeroSection = () => {
             className="rounded-full border-4 border-primary-foreground/30 shadow-xl object-cover w-[180px] h-[180px]"
           />
         </div>
-        <div className="relative text-center md:text-left text-primary-foreground">
-          <a
-            href="https://github.com/gilbert-cpu24"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-0 right-0 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-            aria-label="GitHub Profile"
-          >
-            <Github className="w-5 h-5" />
-          </a>
+        <div className="text-center md:text-left text-primary-foreground">
           <p className="text-sm uppercase tracking-widest text-primary-foreground/70 mb-2">
             E-Portfolio
           </p>
