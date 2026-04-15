@@ -1,9 +1,5 @@
 import { useState } from "react";
-import { X, CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
-import actPrinter from "@/assets/activity-printer.jpg";
-import actWiring from "@/assets/activity-wiring.jpg";
-import actEncoding from "@/assets/activity-encoding.jpg";
-import actHardware from "@/assets/activity-hardware.jpg";
+import { X, CalendarDays, ChevronLeft, ChevronRight, Camera, Images } from "lucide-react";
 import printer1 from "@/assets/printer-1.jfif";
 import printer2 from "@/assets/printer-2.jfif";
 import printer3 from "@/assets/printer-3.jfif";
@@ -48,6 +44,7 @@ import encoding5 from "@/assets/encoding-5.jpg";
 import encoding6 from "@/assets/encoding-6.jpg";
 import encoding7 from "@/assets/encoding-7.jpg";
 import encoding8 from "@/assets/encoding-8.jpg";
+import actHardware from "@/assets/activity-hardware.jpg";
 
 interface Photo {
   src: string;
@@ -58,6 +55,7 @@ interface Photo {
 interface Album {
   title: string;
   cover: string;
+  description: string;
   photos: Photo[];
 }
 
@@ -65,6 +63,7 @@ const albums: Album[] = [
   {
     title: "Printer Maintenance",
     cover: printer1,
+    description: "Hands-on printer servicing including cartridge replacement, jam fixes, and driver setup.",
     photos: [
       { src: printer1, caption: "Checking printer paper jam issue", date: "January 2, 2025" },
       { src: printer2, caption: "Replacing ink cartridges on HP printer", date: "January 4, 2025" },
@@ -86,32 +85,34 @@ const albums: Album[] = [
   {
     title: "Network Wiring",
     cover: network1,
+    description: "Ethernet cable installation, crimping, and network cabinet maintenance across campus.",
     photos: [
-      { src: network1, caption: "Crimped network cables for internet connection in the CCJE building.", date: "February 1, 2025" },
-      { src: network2, caption: "Installed and routed Ethernet cables inside the MIS office.", date: "February 3, 2025" },
-      { src: network3, caption: "Crimped network cables for the Hostel building.", date: "February 4, 2025" },
-      { src: network4, caption: "Crimped network cables for the MIS office.", date: "February 5, 2025" },
-      { src: network5, caption: "Crimped network cables in the boardroom.", date: "February 6, 2025" },
-      { src: network6, caption: "Repaired and organized the internet cabinet in the CCJE building.", date: "February 7, 2025" },
-      { src: network7, caption: "Installed Ethernet cables from the CCJE building.", date: "February 10, 2025" },
-      { src: network8, caption: "Crimped Ethernet cables.", date: "February 11, 2025" },
-      { src: network9, caption: "Installed Ethernet cables in the Agoncillo building.", date: "February 12, 2025" },
-      { src: network10, caption: "Installed Ethernet cables in the gymnasium.", date: "February 13, 2025" },
-      { src: network11, caption: "Repaired the internet cabinet.", date: "February 14, 2025" },
-      { src: network12, caption: "Fixed and organized network cables in the Agoncillo building.", date: "February 17, 2025" },
-      { src: network14, caption: "Repaired network cables at the back of the MIS office.", date: "February 18, 2025" },
-      { src: network15, caption: "Repaired the internet cabinet in the MIS office.", date: "February 19, 2025" },
-      { src: network16, caption: "Fixed the internet connection in the library building.", date: "February 20, 2025" },
-      { src: network17, caption: "Installed Ethernet cables in the CCJE office.", date: "February 21, 2025" },
-      { src: network18, caption: "Repaired internet connection in the Office of the Board Secretary.", date: "February 24, 2025" },
-      { src: network19, caption: "Installed Ethernet cables in the HR office.", date: "February 25, 2025" },
-      { src: network20, caption: "Installed Ethernet cables in the SOA office.", date: "February 26, 2025" },
-      { src: network21, caption: "Installed Ethernet cables in the Board Office.", date: "February 28, 2025" },
+      { src: network1, caption: "Task 1: Crimped network cables for internet connection in the CCJE building.", date: "February 1, 2025" },
+      { src: network2, caption: "Task 2: Installed and routed Ethernet cables inside the MIS office.", date: "February 3, 2025" },
+      { src: network3, caption: "Task 3: Crimped network cables for the Hostel building.", date: "February 4, 2025" },
+      { src: network4, caption: "Task 4: Crimped network cables for the MIS office.", date: "February 5, 2025" },
+      { src: network5, caption: "Task 5: Crimped network cables in the boardroom.", date: "February 6, 2025" },
+      { src: network6, caption: "Task 6: Repaired and organized the internet cabinet in the CCJE building.", date: "February 7, 2025" },
+      { src: network7, caption: "Task 7: Installed Ethernet cables from the CCJE building.", date: "February 10, 2025" },
+      { src: network8, caption: "Task 8: Crimped Ethernet cables.", date: "February 11, 2025" },
+      { src: network9, caption: "Task 9: Installed Ethernet cables in the Agoncillo building.", date: "February 12, 2025" },
+      { src: network10, caption: "Task 10: Installed Ethernet cables in the gymnasium.", date: "February 13, 2025" },
+      { src: network11, caption: "Task 11: Repaired the internet cabinet.", date: "February 14, 2025" },
+      { src: network12, caption: "Task 12: Fixed and organized network cables in the Agoncillo building.", date: "February 17, 2025" },
+      { src: network14, caption: "Task 13: Repaired network cables at the back of the MIS office.", date: "February 18, 2025" },
+      { src: network15, caption: "Task 14: Repaired the internet cabinet in the MIS office.", date: "February 19, 2025" },
+      { src: network16, caption: "Task 15: Fixed the internet connection in the library building.", date: "February 20, 2025" },
+      { src: network17, caption: "Task 16: Installed Ethernet cables in the CCJE office.", date: "February 21, 2025" },
+      { src: network18, caption: "Task 17: Repaired internet connection in the Office of the Board Secretary.", date: "February 24, 2025" },
+      { src: network19, caption: "Task 18: Installed Ethernet cables in the HR office.", date: "February 25, 2025" },
+      { src: network20, caption: "Task 19: Installed Ethernet cables in the SOA office.", date: "February 26, 2025" },
+      { src: network21, caption: "Task 20: Installed Ethernet cables in the Board Office.", date: "February 28, 2025" },
     ],
   },
   {
     title: "Data Encoding",
     cover: encoding1,
+    description: "Digitizing records and entering data into office databases and spreadsheets.",
     photos: [
       { src: encoding1, caption: "Data encoding task 1", date: "March 3, 2025" },
       { src: encoding2, caption: "Data encoding task 2", date: "March 5, 2025" },
@@ -126,6 +127,7 @@ const albums: Album[] = [
   {
     title: "Hardware Troubleshooting",
     cover: actHardware,
+    description: "Desktop diagnostics, component replacement, and system upgrades for office equipment.",
     photos: [
       { src: actHardware, caption: "Diagnosing a desktop that won't boot", date: "April 1, 2025" },
       { src: actHardware, caption: "Replacing a faulty RAM stick", date: "April 2, 2025" },
@@ -163,21 +165,28 @@ const GallerySection = () => {
     setSelectedPhoto(null);
   };
 
+  const totalPhotos = albums.reduce((sum, a) => sum + a.photos.length, 0);
+
   return (
     <section id="gallery" className="py-20 px-6 section-alt">
       <div className="container max-w-5xl">
-        <h2 className="text-3xl font-bold text-foreground mb-2">Photo Gallery</h2>
-        <div className="w-16 h-1 bg-primary rounded-full mb-4" />
-        <p className="text-muted-foreground mb-10">
-          Snapshots from my OJT experience. Click an album to browse photos!
-        </p>
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+            Visual Documentation
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Photo Gallery</h2>
+          <div className="w-16 h-1 bg-primary rounded-full mx-auto mb-4" />
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Browse through {totalPhotos}+ photos documenting my hands-on OJT experience across {albums.length} categories.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {albums.map((album, i) => (
             <div
               key={i}
               onClick={() => setSelectedAlbum(i)}
-              className="group relative overflow-hidden rounded-xl border border-border shadow-sm cursor-pointer"
+              className="group relative overflow-hidden rounded-2xl border border-border shadow-sm cursor-pointer hover:shadow-lg transition-shadow duration-300"
             >
               <img
                 src={album.cover}
@@ -185,12 +194,16 @@ const GallerySection = () => {
                 loading="lazy"
                 width={400}
                 height={300}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 bg-foreground/70 backdrop-blur-sm px-3 py-2">
-                <p className="text-primary-foreground text-sm font-medium">{album.title}</p>
-                <p className="text-primary-foreground/70 text-xs">{album.photos.length} photos</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full px-2.5 py-1 flex items-center gap-1">
+                <Images className="w-3 h-3 text-white" />
+                <span className="text-[11px] font-semibold text-white">{album.photos.length}</span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-white text-sm font-bold">{album.title}</p>
+                <p className="text-white/70 text-xs mt-0.5 line-clamp-2">{album.description}</p>
               </div>
             </div>
           ))}
@@ -199,41 +212,34 @@ const GallerySection = () => {
 
       {/* Album Lightbox */}
       {selectedAlbum !== null && selectedPhoto === null && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
-          onClick={closeAll}
-        >
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={closeAll}>
           <div
             className="relative bg-card rounded-2xl overflow-hidden max-w-3xl w-full max-h-[85vh] shadow-2xl animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between p-4 border-b border-border">
-              <h3 className="text-lg font-bold text-foreground">
-                {albums[selectedAlbum].title}
-                <span className="text-sm font-normal text-muted-foreground ml-2">
-                  ({albums[selectedAlbum].photos.length} photos)
-                </span>
-              </h3>
-              <button
-                onClick={closeAll}
-                className="bg-muted hover:bg-muted/80 text-foreground rounded-full p-1.5 transition"
-              >
+              <div>
+                <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <Camera className="w-5 h-5 text-primary" />
+                  {albums[selectedAlbum].title}
+                </h3>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  {albums[selectedAlbum].photos.length} photos · {albums[selectedAlbum].description}
+                </p>
+              </div>
+              <button onClick={closeAll} className="bg-muted hover:bg-muted/80 text-foreground rounded-full p-1.5 transition">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="overflow-y-auto max-h-[calc(85vh-64px)] p-4 space-y-3">
+            <div className="overflow-y-auto max-h-[calc(85vh-80px)] p-4 space-y-2">
               {albums[selectedAlbum].photos.map((photo, i) => (
                 <div
                   key={i}
                   onClick={() => setSelectedPhoto(i)}
-                  className="flex gap-4 p-3 rounded-xl border border-border hover:bg-muted/50 cursor-pointer transition-colors"
+                  className="flex gap-4 p-3 rounded-xl border border-border hover:bg-muted/50 hover:border-primary/30 cursor-pointer transition-all duration-200"
                 >
-                  <img
-                    src={photo.src}
-                    alt={photo.caption}
-                    className="w-28 h-20 object-cover rounded-lg flex-shrink-0"
-                  />
+                  <img src={photo.src} alt={photo.caption} className="w-28 h-20 object-cover rounded-lg flex-shrink-0" />
                   <div className="flex flex-col justify-center min-w-0">
                     <p className="text-sm font-semibold text-foreground">{photo.caption}</p>
                     <div className="flex items-center gap-1.5 mt-1 text-primary">
@@ -250,10 +256,7 @@ const GallerySection = () => {
 
       {/* Single Photo View */}
       {selectedAlbum !== null && selectedPhoto !== null && (
-        <div
-          className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setSelectedPhoto(null)}
-        >
+        <div className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4" onClick={() => setSelectedPhoto(null)}>
           <div
             className="relative bg-card rounded-2xl overflow-hidden max-w-2xl w-full shadow-2xl animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
@@ -272,14 +275,10 @@ const GallerySection = () => {
             />
 
             <div className="p-5 space-y-2">
-              <h3 className="text-lg font-bold text-foreground">
-                {albums[selectedAlbum].photos[selectedPhoto].caption}
-              </h3>
+              <h3 className="text-lg font-bold text-foreground">{albums[selectedAlbum].photos[selectedPhoto].caption}</h3>
               <div className="flex items-center gap-2 text-primary">
                 <CalendarDays className="w-4 h-4" />
-                <span className="text-sm font-medium">
-                  {albums[selectedAlbum].photos[selectedPhoto].date}
-                </span>
+                <span className="text-sm font-medium">{albums[selectedAlbum].photos[selectedPhoto].date}</span>
               </div>
             </div>
 
