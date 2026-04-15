@@ -4,9 +4,16 @@ import { Github } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="hero-gradient min-h-[50vh] flex items-center justify-center px-6 py-14">
+      <a
+        href="https://github.com/gilbert-cpu24"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-4 right-4 text-primary-foreground hover:text-primary-foreground/80 transition-colors z-10"
+        aria-label="GitHub Profile"
+      >
+        <Github className="w-6 h-6" />
+      </a>
       <div className="container max-w-4xl flex flex-col md:flex-row items-center gap-8">
-        <div className="flex-shrink-0">
-          <img
             src={profileImg}
             alt="Profile photo"
             width={180}
