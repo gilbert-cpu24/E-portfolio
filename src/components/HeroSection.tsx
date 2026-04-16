@@ -1,7 +1,10 @@
 import profileImg from "@/assets/profilegilbert.png";
-import { Github, MapPin, Clock, Briefcase } from "lucide-react";
+import { Github, MapPin, Clock, Briefcase, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
 
 const HeroSection = () => {
+  const { theme, toggle } = useTheme();
+
   return (
     <section className="relative hero-gradient min-h-[60vh] flex items-center justify-center px-6 py-16 overflow-hidden">
       {/* Background decorative elements */}
@@ -11,17 +14,27 @@ const HeroSection = () => {
         <div className="absolute top-1/2 right-1/4 w-40 h-40 bg-white/3 rounded-full blur-2xl" />
       </div>
 
-      {/* GitHub icon */}
-      <a
-        href="https://github.com/gilbert-cpu24"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute top-5 right-5 flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors z-10 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs"
-        aria-label="GitHub Profile"
-      >
-        <Github className="w-4 h-4" />
-        <span className="hidden sm:inline">GitHub</span>
-      </a>
+      {/* GitHub icon + Theme toggle */}
+      <div className="absolute top-5 right-5 flex items-center gap-2 z-10">
+        <button
+          onClick={toggle}
+          className="flex items-center gap-1.5 text-primary-foreground/80 hover:text-primary-foreground transition-colors bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs"
+          aria-label="Toggle theme"
+        >
+          {theme === "light" ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+          <span className="hidden sm:inline">{theme === "light" ? "Dark" : "Light"}</span>
+        </button>
+        <a
+          href="https://github.com/gilbert-cpu24"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 text-primary-foreground/80 hover:text-primary-foreground transition-colors bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs"
+          aria-label="GitHub Profile"
+        >
+          <Github className="w-4 h-4" />
+          <span className="hidden sm:inline">GitHub</span>
+        </a>
+      </div>
 
       <div className="relative z-[1] container max-w-4xl flex flex-col md:flex-row items-center gap-10">
         {/* Profile image */}
