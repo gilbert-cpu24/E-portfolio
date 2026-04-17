@@ -6,7 +6,7 @@ const HeroSection = () => {
   const { theme, toggle } = useTheme();
 
   return (
-    <section className="relative hero-gradient min-h-[60vh] flex items-center justify-center px-6 py-16 overflow-hidden">
+    <section id="profile" className="relative hero-gradient min-h-[60vh] flex items-center justify-center px-6 py-16 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -right-20 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
