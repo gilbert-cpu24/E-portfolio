@@ -11,7 +11,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useState } from "react";
-import profileImg from "@/assets/profilegilbert.png";
 
 const tocItems = [
   { label: "Introduction", target: "introduction", icon: BookOpen },
