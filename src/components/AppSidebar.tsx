@@ -21,7 +21,7 @@ const tocItems = [
   { label: "Photo Gallery", target: "gallery", icon: Images },
   { label: "Assessment", target: "assessment", icon: ClipboardCheck },
   { label: "Contact", target: "contact", icon: Phone },
-  { label: "Profile", target: "about", icon: User },
+  { label: "Profile", target: "profile", icon: User },
 ];
 
 const AppSidebar = () => {
@@ -39,22 +39,6 @@ const AppSidebar = () => {
         collapsed ? "w-16" : "w-64"
       }`}
     >
-      {/* Sidebar Header */}
-      <div className={`border-b border-border ${collapsed ? "p-3" : "p-4"}`}>
-        {collapsed ? (
-          <div className="flex justify-center">
-            <span className="text-xs font-bold text-primary uppercase tracking-wider">EP</span>
-          </div>
-        ) : (
-          <div className="text-center">
-            <p className="text-sm font-bold text-foreground tracking-wide">Sidebar</p>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">
-              E-Portfolio Menu
-            </p>
-          </div>
-        )}
-      </div>
-
       {/* Navigation */}
       <nav className="flex-1 py-4 overflow-y-auto">
         <div className="space-y-1 px-2">
