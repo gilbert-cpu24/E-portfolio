@@ -6,7 +6,6 @@ import SkillsSection from "@/components/SkillsSection";
 import ActivitiesSection from "@/components/ActivitiesSection";
 import GallerySection from "@/components/GallerySection";
 import AssessmentSection from "@/components/AssessmentSection";
-import ProfileSection from "@/components/ProfileSection";
 import FooterSection from "@/components/FooterSection";
 import AppSidebar from "@/components/AppSidebar";
 
@@ -23,7 +22,6 @@ const Index = () => {
         <ActivitiesSection />
         <GallerySection />
         <AssessmentSection />
-        <ProfileSection />
         <FooterSection />
       </div>
     </div>
