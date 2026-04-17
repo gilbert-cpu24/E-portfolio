@@ -21,6 +21,7 @@ const tocItems = [
   { label: "Photo Gallery", target: "gallery", icon: Images },
   { label: "Assessment", target: "assessment", icon: ClipboardCheck },
   { label: "Contact", target: "contact", icon: Phone },
+  { label: "Profile", target: "about", icon: User },
 ];
 
 const AppSidebar = () => {
