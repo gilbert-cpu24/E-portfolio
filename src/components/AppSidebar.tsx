@@ -9,9 +9,9 @@ import {
   Phone,
   ChevronLeft,
   ChevronRight,
-  FolderOpen,
 } from "lucide-react";
 import { useState } from "react";
+import profileImg from "@/assets/profilegilbert.png";
 
 const tocItems = [
   { label: "Introduction", target: "introduction", icon: BookOpen },
@@ -39,15 +39,36 @@ const AppSidebar = () => {
         collapsed ? "w-16" : "w-64"
       }`}
     >
-      {/* Header */}
-      <div className="p-4 border-b border-border flex items-center gap-3">
-        <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-          <FolderOpen className="w-4 h-4 text-primary-foreground" />
-        </div>
-        {!collapsed && (
-          <div className="overflow-hidden">
-            <p className="text-sm font-bold text-foreground leading-tight">E-Portfolio</p>
-            <p className="text-[10px] text-muted-foreground">Contents</p>
+      {/* Profile Header */}
+      <div className={`border-b border-border ${collapsed ? "p-3" : "p-4"}`}>
+        {collapsed ? (
+          <div className="flex justify-center">
+            <img
+              src={profileImg}
+              alt="Gilbert M. Deguit"
+              className="w-10 h-10 rounded-full object-cover border-2 border-primary/30 shadow-sm"
+              style={{ objectPosition: "center 25%" }}
+            />
+          </div>
+        ) : (
+          <div className="flex flex-col items-center text-center gap-2">
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-primary/40 rounded-full blur-sm opacity-60" />
+              <img
+                src={profileImg}
+                alt="Gilbert M. Deguit"
+                className="relative w-16 h-16 rounded-full object-cover border-2 border-primary/40 shadow-md"
+                style={{ objectPosition: "center 25%" }}
+              />
+            </div>
+            <div className="overflow-hidden">
+              <p className="text-sm font-bold text-foreground leading-tight truncate">
+                Gilbert M. Deguit
+              </p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                OJT Intern · MIS
+              </p>
+            </div>
           </div>
         )}
       </div>
