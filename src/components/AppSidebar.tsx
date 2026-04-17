@@ -42,34 +42,45 @@ const AppSidebar = () => {
       {/* Profile Header */}
       <div className={`border-b border-border ${collapsed ? "p-3" : "p-4"}`}>
         {collapsed ? (
-          <div className="flex justify-center">
+          <button
+            onClick={() => scrollTo("about")}
+            className="flex justify-center w-full group"
+            title="Go to About Me"
+          >
             <img
               src={profileImg}
               alt="Gilbert M. Deguit"
-              className="w-10 h-10 rounded-full object-cover border-2 border-primary/30 shadow-sm"
+              className="w-10 h-10 rounded-full object-cover border-2 border-primary/30 shadow-sm group-hover:border-primary group-hover:scale-105 transition-all"
               style={{ objectPosition: "center 25%" }}
             />
-          </div>
+          </button>
         ) : (
-          <div className="flex flex-col items-center text-center gap-2">
+          <button
+            onClick={() => scrollTo("about")}
+            className="flex flex-col items-center text-center gap-2 w-full rounded-lg p-2 -m-2 hover:bg-accent transition-colors group"
+            title="Go to About Me"
+          >
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-primary/40 rounded-full blur-sm opacity-60" />
+              <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-primary/40 rounded-full blur-sm opacity-60 group-hover:opacity-100 transition-opacity" />
               <img
                 src={profileImg}
                 alt="Gilbert M. Deguit"
-                className="relative w-16 h-16 rounded-full object-cover border-2 border-primary/40 shadow-md"
+                className="relative w-16 h-16 rounded-full object-cover border-2 border-primary/40 shadow-md group-hover:border-primary transition-colors"
                 style={{ objectPosition: "center 25%" }}
               />
             </div>
             <div className="overflow-hidden">
-              <p className="text-sm font-bold text-foreground leading-tight truncate">
+              <p className="text-sm font-bold text-foreground leading-tight truncate group-hover:text-primary transition-colors">
                 Gilbert M. Deguit
               </p>
               <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
                 OJT Intern · MIS
               </p>
+              <p className="text-[10px] text-primary/80 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                View Profile →
+              </p>
             </div>
-          </div>
+          </button>
         )}
       </div>
 
